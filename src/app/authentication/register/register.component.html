@@ -1,1 +1,148 @@
-<p>register works!</p>
+<div class="h-screen">
+  <div class="h-full w-full relative object-contain -z-10">
+    <img
+      src="https://images.unsplash.com/photo-1528465424850-54d22f092f9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+      class="w-full h-full object-cover"
+    />
+  </div>
+  <div
+    class="max-w-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+  >
+    <div
+      class="bg-white shadow-md border w-[400px] border-gray-200 rounded-lg p-4 sm:p-6 lg:p-8"
+    >
+      <form
+        class="space-y-6"
+        [formGroup]="registerForm"
+        (ngSubmit)="submitLogin()"
+      >
+        <h3 class="text-xl font-medium text-gray-900">
+          Sign in to our platform
+        </h3>
+        <div class="mt-6">
+          <label 
+          for="firstName"
+          class="text-sm font-medium text-gray-900 block mb-2"
+          >First name</label
+          >
+          <input 
+          type="text"
+          name="firstName"
+          formControlName="firstName"
+          id="firstName"
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+          placeholder="John"
+          required=""
+          />
+          <div *ngIf="firstName?.invalid && firstName?.touched" class="text-red-500">
+            <div *ngIf="firstName?.errors?.['required']">
+              This field is required.
+            </div>
+            <div *ngIf="firstName?.errors?.['minlength']">
+              This field must have at least 3 character.
+            </div>
+            <div *ngIf="firstName?.errors?.['maxlength']">
+              This field must have at most 20 characters.
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <label 
+            for="lastName"
+            class="text-sm font-medium text-gray-900 block mb-2"
+            >Last name</label
+            >
+            <input 
+            type="text"
+            name="lastName"
+            formControlName="lastName"
+            id="lastName"
+            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+            placeholder="Doe"
+            required=""
+            />
+            <div *ngIf="lastName?.invalid && lastName?.touched" class="text-red-500">
+              <div *ngIf="lastName?.errors?.['required']">
+                This field is required.
+              </div>
+              <div *ngIf="lastName?.errors?.['minlength']">
+                This field must have at least 3 character.
+              </div>
+              <div *ngIf="lastName?.errors?.['maxlength']">
+                This field must have at most 20 characters.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            for="email"
+            class="text-sm font-medium text-gray-900 block mb-2"
+            >Your email</label
+          >
+          <input
+            type="email"
+            name="email"
+            formControlName="email"
+            id="email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+            placeholder="name@company.com"
+            required=""
+          />
+          <div *ngIf="email?.invalid && email?.touched" class="text-red-500">
+            <div *ngIf="email?.errors?.['required']">
+              This field is required.
+            </div>
+            <div *ngIf="email?.errors?.['email']">
+              This field must be a valid email.
+            </div>
+          </div>
+        </div>
+        <div>
+          <label
+            for="password"
+            class="text-sm font-medium text-gray-900 block mb-2"
+            >Your password</label
+          >
+          <input
+            type="password"
+            name="password"
+            formControlName="password"
+            id="password"
+            placeholder="••••••••"
+            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+            required=""
+          />
+          <div *ngIf="password?.invalid && password?.touched" class="text-red-500">
+            <div *ngIf="password?.errors?.['required']">
+              This field is required.
+            </div>
+            <div *ngIf="password?.errors?.['minlength']">
+              This field must have at least 6 character.
+            </div>
+            <div *ngIf="password?.errors?.['maxlength']">
+              This field must have at most 20 characters.
+            </div><i class="fa fa-quote-right" aria-hidden="true"></i>
+          </div>
+        </div>
+
+
+        <div>
+          <a href="#" class="text-sm text-indigo-700 hover:underline ml-auto"
+            >Lost Password?</a
+          >
+        </div>
+        <button
+          type="submit"
+          class="w-full text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Login to your account
+        </button>
+        <div class="text-sm font-medium text-gray-500">
+          Not registered?
+          <a [routerLink]="['/auth/login']" class="text-indigo-700 hover:underline">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

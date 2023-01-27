@@ -1,10 +1,12 @@
-export const Constants = { 
+import { environment } from 'src/environments/environment';
+
+export const Constants = {
   apiEndPoint: {
     auth: {
-      login: 'auth/login',
-      register: 'auth/register',
-      logout: 'auth/logout',
-    }
+      login: environment.baseUrl + 'authentication/auth',
+      register: environment.baseUrl + 'authentication/register',
+      logout: environment.baseUrl + 'authentication/logout',
+    },
     // other api endpoints go here
-}
-}
+  },
+};
