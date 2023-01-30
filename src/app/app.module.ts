@@ -3,17 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationModule } from './authentication/authentication.module';  
+import { DashboardNavbarComponent } from './components/dashboard-navbar/dashboard-navbar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
-
+import { DashboardSidebarComponent } from './components/dashboard-sidebar/dashboard-sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
+    DashboardNavbarComponent,
+    DashboardSidebarComponent
   ],
   imports: [
     BrowserModule,
