@@ -6,7 +6,7 @@ import { DashboardNavbarComponent } from '../components/dashboard-navbar/dashboa
 
 @NgModule({
   declarations: [
-    DashboardNavbarComponent,
+    
   ],
   imports: [
     CommonModule

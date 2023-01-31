@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UiDashboardService } from 'src/app/services/ui-dashboard.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UiDashboardService } from 'src/app/services/ui-dashboard.service';
 export class DashboardNavbarComponent {
   showDropdown = false;
 
-  constructor(private uiDashboard: UiDashboardService) { }
+  constructor(private uiDashboard: UiDashboardService, private router: Router) { }
 
 
   handleShowDropdown() {
@@ -19,4 +20,8 @@ export class DashboardNavbarComponent {
     this.uiDashboard.handleSidebarOpen();
   }
 
+  handleLogout() {
+    localStorage.removeItem('access_token');
+    this.router.navigate(['/auth/login']);
+  }
 }
