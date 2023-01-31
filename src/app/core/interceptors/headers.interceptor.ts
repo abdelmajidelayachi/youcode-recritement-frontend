@@ -18,11 +18,21 @@ export class HeadersInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
     const token = this.authService.getCredentials();
-    if(!token){
+    if (token) {
+      // If we have a token, we set it to the header
       request = request.clone({
-        setHeaders: {Authorization: `Bearer ${token}`}
-     });
+         setHeaders: {Authorization: `Bearer ${token}`}
+      });
+   }
+
+   request = request.clone({
+    setHeaders: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     }
+  });
+
+    console.log(request);
       
     return next.handle(request);
   }
