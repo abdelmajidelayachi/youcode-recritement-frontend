@@ -5,20 +5,25 @@ import { GuestGuard } from './core/guards/guest.guard';
 
 const routes: Routes = [
   {
-    path: 'auth', 
-    loadChildren: () => import('./authentication/authentication-routing.module').then(m => m.AuthenticationRoutingModule),
-    canActivate: [GuestGuard]
+    path: 'auth',
+    loadChildren: () =>
+      import('./authentication/authentication-routing.module').then(
+        (m) => m.AuthenticationRoutingModule
+      ),
+    canActivate: [GuestGuard],
   },
   {
-    path: '', 
-    loadChildren: () => import('./pages/pages-routing.module').then(m => m.PagesRoutingModule),
-    canActivate: [AuthGuard]
+    path: '',
+    loadChildren: () =>
+      import('./pages/pages-routing.module').then((m) => m.PagesRoutingModule),
+    canActivate: [AuthGuard],
   },
   // other routes go here
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
