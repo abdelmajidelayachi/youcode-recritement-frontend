@@ -15,7 +15,17 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/pages-routing.module').then((m) => m.PagesRoutingModule),
+      import('./pages/home/home-routing.module').then(
+        (m) => m.HomeRoutingModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard-routing.module').then(
+        (m) => m.DashboardRoutingModule
+      ),
     canActivate: [AuthGuard],
   },
   // other routes go here

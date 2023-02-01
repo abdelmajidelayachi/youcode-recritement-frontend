@@ -1,26 +1,29 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationModule } from './authentication/authentication.module';  
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
-
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { HeadersInterceptor } from './core/interceptors/headers.interceptor';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     AuthenticationModule,
     SharedModule,
-    // FormsModule,
-    // ReactiveFormsModule
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
