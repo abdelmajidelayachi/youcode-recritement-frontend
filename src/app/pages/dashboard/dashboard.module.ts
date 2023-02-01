@@ -8,6 +8,7 @@ import { AddHrModalComponent } from 'src/app/components/modals/add-hr-modal/add-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardNavbarComponent } from 'src/app/components/dashboard-navbar/dashboard-navbar.component';
 import { DashboardSidebarComponent } from 'src/app/components/dashboard-sidebar/dashboard-sidebar.component';
+import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DashboardSidebarComponent } from 'src/app/components/dashboard-sidebar/
     AddHrModalComponent,
     DashboardNavbarComponent,
     DashboardSidebarComponent, 
+    PaginationComponent
   ],
   imports: [
     CommonModule,

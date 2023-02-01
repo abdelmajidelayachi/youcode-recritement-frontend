@@ -11,6 +11,7 @@ import { HrService } from 'src/app/services/hr.service';
 export class AddHrModalComponent {
 
   @Output() closeModalAddHr = new EventEmitter<boolean>();
+  @Output() addHr = new EventEmitter<boolean>();
 
   addHrForm !: FormGroup;
   
@@ -55,6 +56,7 @@ export class AddHrModalComponent {
   handleSaveHr() {
     this.hrService.addHr(this.addHrForm.value).subscribe(res => {
       console.log(res)
+      this.addHr.emit();
     });
     
   }
