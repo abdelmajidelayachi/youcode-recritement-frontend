@@ -9,8 +9,8 @@ export class HrService {
 
   constructor(private http: HttpClient) { }
 
-  getHrs() {
-    return this.http.get(Constants.apiEndPoint.hr.getHrs);
+  getHrs(page: number = 1) {
+    return this.http.get(Constants.apiEndPoint.hr.getHrs + '?page=' + page);
   }
   
   getHr(id: number) {
