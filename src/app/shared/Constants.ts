@@ -14,6 +14,9 @@ export const Constants = {
       updateHr: environment.baseUrl + 'hr/:id',
       deleteHr: environment.baseUrl + 'hr/:id',
     },
+    candidate: {
+      getCandidate: environment.baseUrl + 'candidate/:id',
+    },
     // other api endpoints go here
   },
 };
