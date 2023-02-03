@@ -1,3 +1,4 @@
+import { getRtlScrollAxisType } from '@angular/cdk/platform';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -19,9 +20,10 @@ export class AuthService {
     return this.http.post(Constants.apiEndPoint.auth.register, data);
   }
 
-  setCredentials(token: any){
+  setCredentials(token: any, role : any){
     if(token){
       localStorage.setItem('access_token', token);
+      localStorage.setItem('accessRole', role);
       this.route.navigate(['/']);
     }
   }
@@ -29,6 +31,10 @@ export class AuthService {
 
   getCredentials(){
     return localStorage.getItem('access_token');
+
+  }
+  getRole(){
+    return localStorage.getItem('accessRole');
   }
   
 }

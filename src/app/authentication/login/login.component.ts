@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       this.authService.loginAuth(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         (data:any) => {
           if(data){
-            this.authService.setCredentials(data?.accessToken);
+            this.authService.setCredentials(data?.accessToken, data?.accessRole);
           }
         }
       );

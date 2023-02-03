@@ -9,6 +9,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardSidebarComponent } from './components/dashboard-sidebar/dashboard-sidebar.component';
+import { RoleBasedDashboardDirective } from './directives/role-based-dashboard.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DashboardSidebarComponent } from './components/dashboard-sidebar/dashbo
     HomeComponent,
     DashboardComponent,
     DashboardNavbarComponent,
-    DashboardSidebarComponent
+    DashboardSidebarComponent,
+    RoleBasedDashboardDirective,
   ],
   imports: [
     BrowserModule,
