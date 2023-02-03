@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
 
   updateForm: FormGroup = new FormGroup({});
   ngOnInit(): void {
+    this.authService.getRole();
     this.updateForm = new FormGroup({
       firstName: new FormControl(null, [
         Validators.required,
@@ -58,7 +59,21 @@ export class ProfileComponent implements OnInit {
       );
   }
 
-  updateProfile(item: FormGroup) {
-    console.log(item.value);
+  updateProfile(items: FormGroup) {
+    console.log(items.value);
+
+    this.profileService
+      .updateCandidate(this.authService.getCurrentUserId(), items.value)
+      .subscribe(
+        (res: any) => {
+          // console.log(res);
+          this.getProfile();
+          items.reset();
+        },
+        (error) => {
+          this.getProfile();
+          console.log(error);
+        }
+      );
   }
 }

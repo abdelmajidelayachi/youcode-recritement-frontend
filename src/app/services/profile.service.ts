@@ -7,22 +7,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProfileService {
-  constructor(private http: HttpClient, private authService: AuthService) {}
-
-  public getAuthHeaders() {
-    return new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + this.authService.getCredentials()
-    );
-  }
+  constructor(private http: HttpClient) {}
 
   getOneCandidate(idCandidate: String) {
     return this.http.get(
       Constants.apiEndPoint.candidate.getCandidate.replace(
         ':id',
         idCandidate.toString()
+      )
+    );
+  }
+
+  updateCandidate(idCandidate: String, data: any) {
+    return this.http.put(
+      Constants.apiEndPoint.candidate.updateCandidate.replace(
+        ':id',
+        idCandidate.toString()
       ),
-      { headers: this.getAuthHeaders() }
+      data
     );
   }
 }

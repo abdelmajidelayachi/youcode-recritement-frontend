@@ -32,14 +32,19 @@ export class AuthService {
     return localStorage.getItem('access_token');
   }
 
-  decodeJWT = () => {
+  decodeJWT = (): any => {
     const token: any = this.getCredentials();
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    const payload = token.split('.')[1];
+    const base64 = payload.replace('-', '+').replace('_', '/');
     return JSON.parse(atob(base64));
   };
 
   getCurrentUserId() {
     return this.decodeJWT().id;
+  }
+
+  getRole() {
+    // console.log(this.decodeJWT().authorities[0].authority);
+    return this.decodeJWT().role;
   }
 }

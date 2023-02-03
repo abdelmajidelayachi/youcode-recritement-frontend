@@ -16,6 +16,8 @@ export const Constants = {
     },
     candidate: {
       getCandidate: environment.baseUrl + 'candidate/:id',
+      updateCandidate: environment.baseUrl + 'candidate/:id',
+      updateImage: environment.baseUrl + 'candidateImage/:id',
     },
     // other api endpoints go here
   },
