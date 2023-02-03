@@ -9,7 +9,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
-import { HeadersInterceptor } from './core/interceptors/headers.interceptor';
 import { CoreModule } from './core/core.module';
 
 @NgModule({

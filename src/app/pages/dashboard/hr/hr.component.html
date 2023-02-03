@@ -1,11 +1,15 @@
-<app-add-hr-modal *ngIf="showAddHrModal" (closeModalAddHr)="handleHideAddHrModal()" ></app-add-hr-modal>
-<div class="p-4 mt-16 sm:ml-64">
-  <div class="flex justify-between">
-    <h2 class="text-2xl pb-4 font-semibold text-gray-800 dark:text-gray-700">
+<app-add-hr-modal
+  *ngIf="showAddHrModal"
+  (closeModalAddHr)="handleHideAddHrModal()"
+  (addHr)="handleHrAdded()"
+></app-add-hr-modal>
+<div class="p-3 sm:ml-64 dark:bg-gray-600 overflow-y-hidden" style="height: 100vh;">
+  <div class="flex justify-between mt-16">
+    <h2 class="text-2xl pb-4 font-semibold text-gray-700 dark:text-white">
       HR
     </h2>
     <button
-    (click)="handleShowAddHrModal()"
+      (click)="handleShowAddHrModal()"
       class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-1 px-4 rounded"
     >
       Add HR
@@ -33,7 +37,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let hr of hrs" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <tr
+          *ngFor="let hr of hrs"
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+        >
           <td class="px-6 py-4">
             <div class="flex items-center">
               <div class="flex-shrink-0">
@@ -43,18 +50,18 @@
                   alt="...."
                 />
               </div>
-             
             </div>
           </td>
           <th
             scope="row"
             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
           >
-          {{hr.firstName}} {{hr.lastName}}
+            {{ hr.firstName }} {{ hr.lastName }}
           </th>
-          <td class="px-6 py-4">{{hr.email}}</td>
+          <td class="px-6 py-4">{{ hr.email }}</td>
           <td class="px-6 py-4">
-            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+            <span
+              class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
               >Active</span
             >
           </td>
@@ -66,10 +73,13 @@
             >
           </td>
         </tr>
-        
-       
-        
       </tbody>
     </table>
   </div>
+  <app-pagination
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemsPerPage"
+    [currentPage]="pagination.currentPage"
+    (pageChanged)="handlePageChanged($event)"></app-pagination>
 </div>
+
