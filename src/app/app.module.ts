@@ -22,7 +22,7 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     AuthenticationModule,
     SharedModule,
-    DashboardModule
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
