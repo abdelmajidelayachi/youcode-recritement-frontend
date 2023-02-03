@@ -9,7 +9,6 @@ import { DashboardNavbarComponent } from 'src/app/components/dashboard-navbar/da
 import { DashboardSidebarComponent } from 'src/app/components/dashboard-sidebar/dashboard-sidebar.component';
 import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 import { OverviewAdminComponent } from './overview-admin/overview-admin.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
