@@ -21,6 +21,7 @@ import { CoreModule } from './core/core.module';
     SharedModule,
     DashboardModule,
     HomeModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
