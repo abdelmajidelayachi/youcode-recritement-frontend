@@ -1,0 +1,29 @@
+<div class="p-3 sm:ml-64 dark:bg-gray-600 overflow-y-auto" style="height: 100vh;">
+
+<!-- component -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full my-36">
+    <div class="card bg-white shadow-xl hover:shadow relative mx-auto w-full my-10" *ngFor="let candidate of Candidates">
+        <img class="w-28 mx-auto rounded-full -mt-20 border-8 border-white" src="https://avatars.githubusercontent.com/u/67946056?v=4" alt="">
+        <div class="text-center mt-2 text-3xl font-medium">{{ candidate.firstName }} {{ candidate.lastName }}</div>
+        <div class="text-center mt-2 font-light text-sm">{{ candidate.email }}</div>
+        <div class="px-6 text-center mt-2 font-light text-sm">
+        </div>
+     </div>
+
+     
+  </div>
+  <app-pagination
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemsPerPage"
+    [currentPage]="pagination.currentPage"
+    (pageChanged)="handlePageChanged($event)"></app-pagination>
+</div>
+  
+
+
+
+
+  
+
+
+  
