@@ -10,6 +10,7 @@ import { DashboardSidebarComponent } from 'src/app/components/dashboard-sidebar/
 import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 import { OverviewAdminComponent } from './overview-admin/overview-admin.component';
 import { CandidatesComponent } from './candidates/candidates.component';
+import { SearchComponent } from 'src/app/components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { CandidatesComponent } from './candidates/candidates.component';
     AddHrModalComponent,
     DashboardNavbarComponent,
     DashboardSidebarComponent, 
-    PaginationComponent, OverviewAdminComponent, CandidatesComponent
+    PaginationComponent, OverviewAdminComponent, CandidatesComponent,SearchComponent
   ],
   imports: [
     CommonModule,

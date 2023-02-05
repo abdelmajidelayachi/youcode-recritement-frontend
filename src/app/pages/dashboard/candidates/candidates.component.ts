@@ -38,6 +38,14 @@ export class CandidatesComponent {
       this.pagination.currentPage = res.pageNumber;
     })    
   }
+
+  searchText: string='';
+
+  // create method call custom method
+  onSerachTextEntered(searchValue: string){
+    this.searchText=searchValue;
+    // console.log(this.searchText);
+  }
     
 
 }
