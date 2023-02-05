@@ -15,6 +15,7 @@ export const Constants = {
       deleteHr: environment.baseUrl + 'hr/:id',
     },
     candidate: {
+      getCandidates: environment.baseUrl + 'candidates',
       getCandidate: environment.baseUrl + 'candidate/:id',
       updateCandidate: environment.baseUrl + 'candidate/:id',
       updateImage: environment.baseUrl + 'candidateImage/:id',

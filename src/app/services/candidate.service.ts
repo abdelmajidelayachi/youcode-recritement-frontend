@@ -11,7 +11,7 @@ export class CandidateService {
   constructor(private http: HttpClient) { }
 
   getCandidates(page: number = 1) {
-    return this.http.get(Constants.apiEndPoint.candidate.getCandidate + '?page=' + page);
+    return this.http.get(Constants.apiEndPoint.candidate.getCandidates + '?page=' + page);
   }
 
   updateCandidate(candidate: any) {
