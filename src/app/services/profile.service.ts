@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { Constants } from './../shared/Constants';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProfileService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getOneCandidate(idCandidate: String) {
     return this.http.get(
@@ -25,6 +26,15 @@ export class ProfileService {
         idCandidate.toString()
       ),
       data
+    );
+  }
+
+  updateCandidateImage(image: any): Observable<any> {
+    return this.http.post(
+      Constants.apiEndPoint.candidate.updateImage +
+        '?id=' +
+        this.authService.getCurrentUserId(),
+      image
     );
   }
 }

@@ -1,5 +1,5 @@
 import { AuthService } from 'src/app/services/auth.service';
-import { ProfileService } from './../../../services/profile.service';
+import { ProfileService } from '../../../services/profile.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,9 +14,10 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService
   ) {}
 
+  imageFile: any = null;
+
   updateForm: FormGroup = new FormGroup({});
   ngOnInit(): void {
-    this.authService.getRole();
     this.updateForm = new FormGroup({
       firstName: new FormControl(null, [
         Validators.required,
@@ -52,6 +53,7 @@ export class ProfileComponent implements OnInit {
             lastName: res.lastName,
             email: res.email,
           });
+          this.imageFile = res.image;
         },
         (error) => {
           console.log(error);
@@ -60,8 +62,6 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(items: FormGroup) {
-    console.log(items.value);
-
     this.profileService
       .updateCandidate(this.authService.getCurrentUserId(), items.value)
       .subscribe(
@@ -75,5 +75,19 @@ export class ProfileComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  uploadImage(event: any) {
+    const formData = new FormData();
+    formData.append('imageFile', event.target.files[0]);
+    this.profileService.updateCandidateImage(formData).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.getProfile();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
