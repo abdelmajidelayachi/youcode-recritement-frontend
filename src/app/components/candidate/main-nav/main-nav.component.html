@@ -1,8 +1,9 @@
 <div class="flex justify-center">
     <div class="w-1/2 flex justify-center items-center mt-20 border rounded-sm font-semibold">
-        <a routerLink='/home/cv' class="block text-center w-1/2 p-4 border-r bg-gray-800 text-white dark:bg-gray-300 dark:text-gray-800">
+        <a routerLink='/home/cv' [ngClass]="checkUrl=='/home/cv' ? 'block text-center w-1/2 p-4 border-r bg-gray-800 text-white dark:bg-gray-300 dark:text-gray-800' : 'block text-center w-1/2 p-4 dark:text-white'">
             CV</a>
-        <a routerLink='/home/letter-motivation' class="block text-center w-1/2 p-4 dark:text-white">Lettre de
+        <a routerLink='/home/letter-motivation' [ngClass]="checkUrl=='/home/cv' ? 'block text-center w-1/2 p-4 dark:text-white' : 'block text-center w-1/2 p-4 border-r bg-gray-800 text-white dark:bg-gray-300 dark:text-gray-800'">Lettre
+            de
             motivation</a>
     </div>
 </div>

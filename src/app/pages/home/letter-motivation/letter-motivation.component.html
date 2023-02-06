@@ -12,7 +12,7 @@
                         <section class="h-full overflow-auto p-8 w-full flex flex-col">
                             <label for="file" class="border-dashed border-2 border-gray-400 py-12 flex flex-col justify-center items-center">
                                 <p class="mb-3 font-semibold text-gray-900 flex flex-wrap justify-center">
-                                    <span>Drag and drop your</span>&nbsp;<span>files anywhere or</span>
+                                    <span>Drag and drop your</span>&nbsp;<span>Motivation Letter anywhere or</span>
                                 </p>
                                 <input id="hidden-input" type="file" multiple class="hidden" />
                                 <div id="button"
@@ -43,7 +43,7 @@
         </div>
 
         <div class="w-1/5 self-end fixed bottom-6 right-6 ml-10">
-            <app-comment></app-comment>
+            <app-comment [idDocument]="id_document"></app-comment>
         </div>
     </div>
 </div>

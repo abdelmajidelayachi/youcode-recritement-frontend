@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, DashboardComponent],
@@ -21,6 +22,7 @@ import { CoreModule } from './core/core.module';
     SharedModule,
     DashboardModule,
     HomeModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -42,4 +42,8 @@ export class CandidateService {
       ) + '?type=motivation_letter'
     );
   }
+
+  getImageProfile(imageProfile: String) {
+    return imageProfile;
+  }
 }

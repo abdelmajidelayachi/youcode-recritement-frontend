@@ -1,36 +1,38 @@
-<div class="flex justify-center mt-28">
-    <form (ngSubmit)="updateProfile(updateForm)" [formGroup]="updateForm" class="flex flex-col justify-center bg-white p-6 rounded-lg shadow-md" style="width: 60%">
-        <div class="flex items-center mb-6">
-            <img *ngIf="!imageFile" src="assets/imgs/profile.png" alt="Profile Image" class="w-24 h-24 rounded-full mr-6">
-            <img *ngIf="imageFile" [src]="imageFile" alt="Profile Image" class="w-24 h-24 rounded-full mr-6">
-            <div class="flex-1">
-                <h2 class="text-lg font-bold mb-2">Mohammed Amine LAHMAMI</h2>
-                <p class="text-gray-600 text-sm">lahmamimohammedamine@gmail.com</p>
-                <div class="relative">
-                    <input type="file" (change)="uploadImage($event)" accept="image/*" id="uploadImage" class="hidden" />
-                    <label for="uploadImage" class="absolute -bottom-5 -left-11 w-8 h-8"><i
-                            class="material-icons text-black">camera_alt</i></label>
+<div class="bg-gray-600 min-h-screen">
+    <div class="flex justify-center">
+        <form (ngSubmit)="updateProfile(updateForm)" [formGroup]="updateForm" class="flex flex-col justify-center bg-gray-700 mt-28 p-6 rounded-lg shadow-md" style="width: 60%">
+            <div class="flex items-center mb-6">
+                <img *ngIf="!imageFile" src="assets/imgs/profile.png" alt="Profile Image" class="w-24 h-24 rounded-full mr-6">
+                <img *ngIf="imageFile" [src]="imageFile" alt="Profile Image" class="w-24 h-24 rounded-full mr-6">
+                <div class="flex-1 text-white">
+                    <h2 class="text-lg font-bold mb-2">Mohammed Amine LAHMAMI</h2>
+                    <p class="text-sm">lahmamimohammedamine@gmail.com</p>
+                    <div class="relative">
+                        <input type="file" (change)="uploadImage($event)" accept="image/*" id="uploadImage" class="hidden" />
+                        <label for="uploadImage" class="absolute -bottom-5 -left-11 w-8 h-8"><i
+                                class="material-icons">camera_alt</i></label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="mb-6">
-            <label class="block text-gray-700 font-bold mb-2">First Name</label>
-            <input type="text" formControlName="firstName" class="w-full border border-gray-400 p-2 rounded-lg">
-        </div>
-        <div class="mb-6">
-            <label class="block text-gray-700 font-bold mb-2">Last Name</label>
-            <input type="text" formControlName="lastName" class="w-full border border-gray-400 p-2 rounded-lg">
-        </div>
-        <div class="mb-6">
-            <label class="block text-gray-700 font-bold mb-2">Email</label>
-            <input type="email" formControlName="email" class="w-full border border-gray-400 p-2 rounded-lg">
-        </div>
-        <div class="mb-6">
-            <label class="block text-gray-700 font-bold mb-2">Current Password</label>
-            <input type="password" formControlName="password" class="w-full border border-gray-400 p-2 rounded-lg">
-        </div>
-        <div class="flex items-center justify-end">
-            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Update</button>
-        </div>
-    </form>
+            <div class="mb-6">
+                <label class="block text-white font-bold mb-2">First Name</label>
+                <input type="text" formControlName="firstName" class="w-full border border-gray-400 p-2 rounded-lg">
+            </div>
+            <div class="mb-6">
+                <label class="block text-white font-bold mb-2">Last Name</label>
+                <input type="text" formControlName="lastName" class="w-full border border-gray-400 p-2 rounded-lg">
+            </div>
+            <div class="mb-6">
+                <label class="block text-white font-bold mb-2">Email</label>
+                <input type="email" formControlName="email" class="w-full border border-gray-400 p-2 rounded-lg">
+            </div>
+            <div class="mb-6">
+                <label class="block text-white font-bold mb-2">Current Password</label>
+                <input type="password" formControlName="password" class="w-full border border-gray-400 p-2 rounded-lg">
+            </div>
+            <div class="flex items-center justify-end">
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Update</button>
+            </div>
+        </form>
+    </div>
 </div>

@@ -1,6 +1,5 @@
 import { CandidateService } from './../../../services/candidate.service';
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-candidate-home',
@@ -8,9 +7,9 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./candidate-home.component.css'],
 })
 export class CandidateHomeComponent implements OnInit {
-  constructor(private candidateService: CandidateService) {}
-
   cv: string = '';
+  id_document: string = '';
+  constructor(private candidateService: CandidateService) {}
 
   ngOnInit(): void {
     this.getCV();
@@ -35,6 +34,7 @@ export class CandidateHomeComponent implements OnInit {
       next: (response) => {
         // console.log(response);
         this.cv = response.path;
+        this.id_document = response.id_document;
       },
       error: (error) => {
         console.log(error);
