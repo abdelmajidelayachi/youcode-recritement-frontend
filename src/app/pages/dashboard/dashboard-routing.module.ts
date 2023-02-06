@@ -14,6 +14,7 @@ const routes: Routes = [
       { path: '', component: OverviewAdminComponent },
       { path: 'hrs', component: HrComponent },
       { path: 'candidates', component: CandidatesComponent },
+      
     ],
   },
 ];
