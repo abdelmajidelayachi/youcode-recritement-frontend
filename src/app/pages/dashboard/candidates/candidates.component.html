@@ -1,0 +1,35 @@
+<div class="p-3 sm:ml-64 dark:bg-gray-600 overflow-y-auto" style="height: 100vh;">
+
+   <app-search (searchTextChanged)="onSerachTextEntered($event)"></app-search>
+<!-- component -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full my-36" >
+   <ng-container *ngFor="let candidate of Candidates">
+      <div class="card bg-white shadow-xl hover:shadow relative mx-auto w-full my-10" *ngIf="searchText === '' || candidate.firstName.toLowerCase().includes(searchText) || candidate.lastName.toLowerCase().includes(searchText)">
+          
+                  <img class="w-28 mx-auto rounded-full -mt-20 border-8 border-white" src="assets/imgs/profile.png" alt="">
+                  <div class="text-center mt-2 text-2xl font-medium">{{ candidate.firstName }} {{ candidate.lastName }}</div>
+                  <div class="text-center mt-2 font-light text-sm">{{ candidate.email }}</div>
+                  <div class="px-6 text-center mt-2 font-light text-sm">
+                  </div>
+      
+            </div>
+   </ng-container>
+   
+
+    
+  </div>
+   <app-pagination
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemsPerPage"
+    [currentPage]="pagination.currentPage"
+    (pageChanged)="handlePageChanged($event)"></app-pagination>
+</div>
+  
+
+
+
+
+  
+
+
+  
