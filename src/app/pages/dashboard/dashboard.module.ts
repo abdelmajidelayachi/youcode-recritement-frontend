@@ -9,6 +9,8 @@ import { DashboardNavbarComponent } from 'src/app/components/dashboard-navbar/da
 import { DashboardSidebarComponent } from 'src/app/components/dashboard-sidebar/dashboard-sidebar.component';
 import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 import { OverviewAdminComponent } from './overview-admin/overview-admin.component';
+import { CandidatesComponent } from './candidates/candidates.component';
+import { SearchComponent } from 'src/app/components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -16,18 +18,18 @@ import { OverviewAdminComponent } from './overview-admin/overview-admin.componen
     AddHrModalComponent,
     DashboardNavbarComponent,
     DashboardSidebarComponent, 
-    PaginationComponent, OverviewAdminComponent
+    PaginationComponent, OverviewAdminComponent, CandidatesComponent,SearchComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     AddHrModalComponent,
     DashboardNavbarComponent,
-    DashboardSidebarComponent
+    DashboardSidebarComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

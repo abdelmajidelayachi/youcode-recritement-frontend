@@ -8,6 +8,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
+
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,9 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     AuthenticationModule,
     SharedModule,
-    DashboardModule,
     HomeModule,
     ReactiveFormsModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

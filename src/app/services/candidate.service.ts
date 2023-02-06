@@ -1,8 +1,8 @@
-import { AuthService } from 'src/app/services/auth.service';
-import { Constants } from './../shared/Constants';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Constants } from '../shared/Constants';
+import { AuthService } from 'src/app/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -45,5 +45,30 @@ export class CandidateService {
 
   getImageProfile(imageProfile: String) {
     return imageProfile;
+  }
+  getCandidates(page: number = 1) {
+    return this.http.get(
+      Constants.apiEndPoint.candidate.getCandidates + '?page=' + page
+    );
+  }
+
+  updateCandidate(candidate: any) {
+    return this.http.put(
+      Constants.apiEndPoint.candidate.updateCandidate.replace(
+        ':id',
+        candidate.id.toString()
+      ),
+      candidate
+    );
+  }
+
+  updateImage(candidateImage: any) {
+    return this.http.put(
+      Constants.apiEndPoint.candidate.updateCandidate.replace(
+        ':id',
+        candidateImage.id.toString()
+      ),
+      candidateImage
+    );
   }
 }
