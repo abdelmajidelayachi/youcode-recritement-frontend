@@ -54,6 +54,14 @@ export class ProfileComponent implements OnInit {
             email: res.email,
           });
           this.imageFile = res.image;
+          const currentUser = {
+            id: res.id,
+            firstName: res.firstName,
+            lastName: res.lastName,
+            email: res.email,
+            image: res.image,
+          };
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
         },
         (error) => {
           console.log(error);
@@ -66,8 +74,8 @@ export class ProfileComponent implements OnInit {
       .updateCandidate(this.authService.getCurrentUserId(), items.value)
       .subscribe(
         (res: any) => {
-          // console.log(res);
           this.getProfile();
+          // console.log(res);
           items.reset();
         },
         (error) => {
@@ -82,7 +90,7 @@ export class ProfileComponent implements OnInit {
     formData.append('imageFile', event.target.files[0]);
     this.profileService.updateCandidateImage(formData).subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
         this.getProfile();
       },
       (error) => {

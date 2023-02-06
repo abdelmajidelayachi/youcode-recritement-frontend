@@ -22,6 +22,10 @@ export const Constants = {
       uploadDocument: environment.baseUrl + 'document',
       getOneDocument: environment.baseUrl + 'documents/:id',
     },
+    comment: {
+      addComment: environment.baseUrl + 'comment/:id',
+      getAllComments: environment.baseUrl + 'comments/:id',
+    },
     // other api endpoints go here
   },
 };

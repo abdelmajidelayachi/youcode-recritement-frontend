@@ -11,15 +11,10 @@ import { SharedModule } from './shared/shared.module';
 
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-
-    DashboardComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,8 +22,8 @@ import { CoreModule } from './core/core.module';
     AuthenticationModule,
     SharedModule,
     HomeModule,
+    ReactiveFormsModule,
     DashboardModule,
-   
   ],
   providers: [],
   bootstrap: [AppComponent],

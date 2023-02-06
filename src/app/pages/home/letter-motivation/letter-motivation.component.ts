@@ -10,6 +10,7 @@ export class LetterMotivationComponent implements OnInit {
   constructor(private candidateService: CandidateService) {}
 
   motivation_letter: string = '';
+  id_document: string = '';
 
   ngOnInit(): void {
     this.getMotivationLetter();
@@ -34,6 +35,7 @@ export class LetterMotivationComponent implements OnInit {
       next: (response) => {
         // console.log(response);
         this.motivation_letter = response.path;
+        this.id_document = response.id_document;
       },
       error: (error) => {
         console.log(error);
