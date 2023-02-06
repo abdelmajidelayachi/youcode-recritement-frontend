@@ -1,3 +1,5 @@
+import { SubSkillsComponent } from './../../components/skills/sub-skills/sub-skills.component';
+import { SkillsBarComponent } from './../../components/skills/skills-bar/skills-bar.component';
 import { CoreModule } from './../../core/core.module';
 import { CommentComponent } from './../../components/candidate/comment/comment.component';
 import { MainNavComponent } from './../../components/candidate/main-nav/main-nav.component';
@@ -16,12 +18,16 @@ import { LetterMotivationComponent } from './letter-motivation/letter-motivation
     MainNavComponent,
     CommentComponent,
     LetterMotivationComponent,
+    SkillsBarComponent,
+    SubSkillsComponent,
   ],
   exports: [
     ProfileComponent,
     CandidateHomeComponent,
     MainNavComponent,
     CommentComponent,
+    SkillsBarComponent,
+    SubSkillsComponent,
   ],
   imports: [
     CommonModule,
