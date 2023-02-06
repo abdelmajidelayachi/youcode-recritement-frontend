@@ -18,7 +18,9 @@ export const Constants = {
       getCandidates: environment.baseUrl + 'candidates',
       getCandidate: environment.baseUrl + 'candidate/:id',
       updateCandidate: environment.baseUrl + 'candidate/:id',
-      updateImage: environment.baseUrl + 'candidateImage/:id',
+      updateImage: environment.baseUrl + 'candidateImage',
+      uploadDocument: environment.baseUrl + 'document',
+      getOneDocument: environment.baseUrl + 'documents/:id',
     },
     // other api endpoints go here
   },

@@ -46,7 +46,6 @@ export class AuthService {
   }
 
   getRole() {
-    // console.log(this.decodeJWT().authorities[0].authority);
     return this.decodeJWT().role;
   }
 }
