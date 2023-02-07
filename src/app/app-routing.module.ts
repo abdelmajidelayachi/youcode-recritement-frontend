@@ -14,10 +14,6 @@ const routes: Routes = [
       ),
     canActivate: [GuestGuard],
   },
-  { path: 'home/profile', component: ProfileComponent,
-  canActivate: [AuthGuard, CheckRoleGuard],
-  data: { expectedRole: ['ROLE_CANDIDATE', 'ROLE_HR', 'ROLE_ADMIN'] }
-},
   {
     path: '',
     loadChildren: () =>
