@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   registerAuth(data: any) {
-    data.role = 'candidate';
+    data.role = 'ROLE_CANDIDATE';
     return this.http.post(Constants.apiEndPoint.auth.register, data);
   }
 
@@ -47,5 +47,11 @@ export class AuthService {
 
   getRole() {
     return this.decodeJWT().role;
+  }
+
+  getAuthorities(): string[]{
+    const authorities = this.decodeJWT().authorities.map((authority: any) => authority.authority);
+    console.log(authorities);
+    return authorities;
   }
 }

@@ -15,7 +15,13 @@ export class GuestGuard implements CanActivate {
       if(!this.authService.getCredentials()){
         return true;
       }else{
-        this.router.navigate(['/home']);
+        const role = this.authService.getAuthorities();
+        if(role.includes('ROLE_CANDIDATE')) {
+          this.router.navigate(['/home']);
+        }
+        if(role.includes('ROLE_ADMIN') || role.includes('ROLE_HR')) {
+          this.router.navigate(['/dashboard']);
+        }
         return false;
       }
   }
