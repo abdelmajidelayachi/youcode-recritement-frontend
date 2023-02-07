@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'cv', pathMatch: 'full' },
       { path: 'cv', component: CandidateHomeComponent },
       { path: 'letter-motivation', component: LetterMotivationComponent },
-      { path: 'profile', component: ProfileComponent },
+      // { path: 'profile', component: ProfileComponent },
     ],
   },
 ];

@@ -49,9 +49,9 @@ export class AuthService {
     return this.decodeJWT().role;
   }
 
-  getAuthorities(): string[]{
+  getAuthorities(): string[] | undefined{
+    
     const authorities = this.decodeJWT().authorities.map((authority: any) => authority.authority);
-    console.log(authorities);
     return authorities;
   }
 }

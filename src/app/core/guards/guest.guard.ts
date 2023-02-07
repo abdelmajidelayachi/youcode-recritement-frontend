@@ -12,18 +12,14 @@ export class GuestGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(!this.authService.getCredentials()){
-        return true;
+      const token = this.authService.getCredentials();
+      if(!token){
+      return true;
       }else{
-        const role = this.authService.getAuthorities();
-        if(role.includes('ROLE_CANDIDATE')) {
-          this.router.navigate(['/home']);
-        }
-        if(role.includes('ROLE_ADMIN') || role.includes('ROLE_HR')) {
-          this.router.navigate(['/dashboard']);
-        }
+        this.router.navigate(['/']);
         return false;
       }
+
   }
   
 }
