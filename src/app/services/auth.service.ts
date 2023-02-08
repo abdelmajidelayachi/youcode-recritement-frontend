@@ -1,5 +1,4 @@
-import { getRtlScrollAxisType } from '@angular/cdk/platform';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Constants } from '../shared/Constants';
@@ -22,7 +21,7 @@ export class AuthService {
     return this.http.post(Constants.apiEndPoint.auth.register, data);
   }
 
-  setCredentials(token: any){
+  setCredentials(token: any) {
     if (token) {
       localStorage.setItem('access_token', token);
       this.route.navigate(['/']);
@@ -31,9 +30,8 @@ export class AuthService {
 
   getCredentials() {
     return localStorage.getItem('access_token');
-
   }
-  
+
   decodeJWT = (): any => {
     const token: any = this.getCredentials();
     const payload = token.split('.')[1];
@@ -49,9 +47,13 @@ export class AuthService {
     return this.decodeJWT().role;
   }
 
-  getAuthorities(): string[] | undefined{
-    
-    const authorities = this.decodeJWT().authorities.map((authority: any) => authority.authority);
+  getCurrentUserFromLocal(): any {
+    return JSON.parse(localStorage.getItem('currentUser')!);
+  }
+  getAuthorities(): string[] | undefined {
+    const authorities = this.decodeJWT().authorities.map(
+      (authority: any) => authority.authority
+    );
     return authorities;
   }
 
@@ -62,5 +64,4 @@ export class AuthService {
     }
     return false;
   }
-  
 }

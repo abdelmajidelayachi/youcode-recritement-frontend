@@ -31,7 +31,7 @@ export class DashboardNavbarComponent {
   }
 
   handleLogout() {
-    localStorage.removeItem('access_token');
+    localStorage.clear();
     this.router.navigate(['/auth/login']);
   }
 }

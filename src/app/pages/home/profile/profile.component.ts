@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   constructor(
     private profileService: ProfileService,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
   imageFile: any = null;
@@ -45,32 +45,30 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile() {
-    this.profileService
-      .getProfileData()
-      .subscribe(
-        (res: any) => {
-          console.log("res", res);
-          this.updateForm.patchValue({
-            firstName: res.firstName,
-            lastName: res.lastName,
-            email: res.email,
-          });
-          this.imageFile = res.image;
-          this.currentUser = {
-            id: res.id,
-            firstName: res.firstName,
-            lastName: res.lastName,
-            email: res.email,
-            image: res.image,
-          };
-          if(this.currentUser!==null){
-              localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-          }
-        },
-        (error) => {
-          console.log(error);
+    this.profileService.getProfileData().subscribe(
+      (res: any) => {
+        console.log('res', res);
+        this.updateForm.patchValue({
+          firstName: res.firstName,
+          lastName: res.lastName,
+          email: res.email,
+        });
+        this.imageFile = res.image;
+        this.currentUser = {
+          id: res.id,
+          firstName: res.firstName,
+          lastName: res.lastName,
+          email: res.email,
+          image: res.image,
+        };
+        if (this.currentUser !== null) {
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
         }
-      );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   updateProfile(items: FormGroup) {

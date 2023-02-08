@@ -37,6 +37,6 @@ import { LetterMotivationComponent } from './letter-motivation/letter-motivation
     ReactiveFormsModule,
     CoreModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule {}
