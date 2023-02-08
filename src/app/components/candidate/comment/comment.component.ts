@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CommentService } from './../../../services/comment.service';
@@ -9,11 +10,13 @@ import { CommentService } from './../../../services/comment.service';
 })
 export class CommentComponent implements OnInit, OnChanges {
   @Input() idDocument: string = '';
-  currentUserString: any = localStorage.getItem('currentUser');
-  currentUser: any = JSON.parse(this.currentUserString);
   comments: any = [];
+  currentUser: any = this.authService.getCurrentUserFromLocal();
 
-  constructor(private commentService: CommentService) {}
+  constructor(
+    private commentService: CommentService,
+    private authService: AuthService
+  ) {}
 
   ngOnChanges(changes: any) {
     if (changes.idDocument && this.idDocument != '') {
