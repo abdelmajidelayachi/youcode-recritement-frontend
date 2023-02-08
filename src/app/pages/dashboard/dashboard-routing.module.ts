@@ -16,9 +16,20 @@ const routes: Routes = [
       { path: 'hrs', component: HrComponent },
       { path: 'candidates', component: CandidatesComponent },
       { path: 'profile', component: ProfileComponent },
-      
     ],
   },
+  // {
+  //   path: 'candidate/:id/cv',
+  //   component: CandidateHomeComponent,
+  //   canActivate: [CheckRoleGuard],
+  //   data: { expectedRole: ['ROLE_HR'] },
+  // },
+  // {
+  //   path: 'candidate/:id/letter-motivation',
+  //   component: CandidateHomeComponent,
+  //   canActivate: [CheckRoleGuard],
+  //   data: { expectedRole: ['ROLE_HR'] },
+  // }
 ];
 
 @NgModule({

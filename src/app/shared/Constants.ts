@@ -8,6 +8,7 @@ export const Constants = {
       logout: environment.baseUrl + 'authentication/logout',
     },
     hr: {
+      profile: environment.baseUrl + 'hr/profile',
       getHrs: environment.baseUrl + 'hrs',
       getHr: environment.baseUrl + 'hr/:id',
       addHr: environment.baseUrl + 'hr',
@@ -15,12 +16,16 @@ export const Constants = {
       deleteHr: environment.baseUrl + 'hr/:id',
     },
     candidate: {
+      profile: environment.baseUrl + 'candidate/profile',
       getCandidates: environment.baseUrl + 'candidates',
       getCandidate: environment.baseUrl + 'candidate/:id',
       updateCandidate: environment.baseUrl + 'candidate/:id',
       updateImage: environment.baseUrl + 'candidateImage',
       uploadDocument: environment.baseUrl + 'document',
       getOneDocument: environment.baseUrl + 'documents/:id',
+    },
+    admin: {
+      profile: environment.baseUrl + 'admin/profile',
     },
     comment: {
       addComment: environment.baseUrl + 'comment/:id',
