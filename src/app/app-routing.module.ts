@@ -1,4 +1,3 @@
-import { ProfileComponent } from './pages/home/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
