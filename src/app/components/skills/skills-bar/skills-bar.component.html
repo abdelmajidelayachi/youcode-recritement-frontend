@@ -1,64 +1,18 @@
-<div class="flex flex-col items-center h-min bg-gray-30">
-    <div class="w-full my-8 p-8 items-center bg-white rounded-2xl shadow-xl overflow-hidden sm:max-w-4xl hover:shadow-xl dark:bg-gray-500">
+<div class="flex flex-col items-center bg-gray-30 h-[800px]">
+    <div
+        class="w-full my-8 p-8 items-center bg-white rounded-2xl shadow-xl overflow-scroll sm:max-w-4xl hover:shadow-xl dark:bg-gray-500">
         <h1 class="mr-2 text-2xl text-gray-800 font-bold sm:text-3xl dark:text-gray-100">Hi {{ currentUser.lastName }}👋
         </h1>
-        <p class="mt-2 text-gray-600 dark:text-gray-200">Lets get familiar with your interests so that we can recommend your resources accordingly.</p>
+        <p class="mt-2 text-gray-600 dark:text-gray-200">Lets get familiar with your interests so that we can recommend
+            your resources accordingly.</p>
 
-        <form action="#" class="mt-8">
-            <div class="flex flex-col items-center mt-1 text-sm sm:flex-row sm:space-y-0 sm:space-x-4">
-                <div class="w-full sm:mb-2">
-                    <label for="input2">
-                        <span class="ml-2text-sm sm:text-base text-gray-800 dark:text-gray-200">What are you most
-                            excited to learn
-                            about?</span>
-                        <input id="input2" minlength="5"
-                            class="mt-1 py-3 px-5 w-full border-2 border-purple-300 rounded-2xl outline-none placeholder:text-gray-400 invalid:text-pink-700 invalid:focus:ring-pink-700 invalid:focus:border-pink-700 peer dark:bg-gray-500 dark:text-gray-200 dark:placeholder:text-gray-300 dark:invalid:text-pink-300 dark:border-gray-400"
-                            type="text" placeholder="Type something" />
-                        <p class="ml-2 text-xs text-pink-700 invisible peer-invalid:visible dark:text-gray-200">less
-                            than 5
-                            characters</p>
-                    </label>
-                </div>
-                <div class="w-full text-center py-3 px-8 text-sm font-medium bg-purple-500 text-gray-100 rounded-2xl cursor-pointer sm:w-min hover:bg-purple-700 hover:text-gray-50 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-50 mb-4 sm:mb-0">
-                    <span>Add</span>
-                </div>
-            </div>
-        </form>
-        <div class='px-2 pt-2 pb-11 mb-3 flex flex-wrap rounded-lg bg-purple-200 dark:bg-gray-400'>
-            <span class="flex flex-wrap pl-4 pr-2 py-2 m-1 justify-between items-center text-sm font-medium rounded-xl cursor-pointer bg-purple-500 text-gray-200 hover:bg-purple-600 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100">
-                Backend Devlopment
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3 hover:text-gray-300" viewBox="0 0 20 20"
-                    fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                        clip-rule="evenodd" />
-                </svg>
-            </span>
-            <span class="flex flex-wrap pl-4 pr-2 py-2 m-1 justify-between items-center text-sm font-medium rounded-xl cursor-pointer bg-purple-500 text-gray-200 hover:bg-purple-600 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100">
-                Frontend Devlopment
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3 hover:text-gray-300" viewBox="0 0 20 20"
-                    fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                        clip-rule="evenodd" />
-                </svg>
-            </span>
-            <span class="flex flex-wrap pl-4 pr-2 py-2 m-1 justify-between items-center text-sm font-medium rounded-xl cursor-pointer bg-purple-500 text-gray-200 hover:bg-purple-600 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100">
-                Database
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-3 hover:text-gray-300" viewBox="0 0 20 20"
-                    fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                        clip-rule="evenodd" />
-                </svg>
-            </span>
-        </div>
+        <app-sub-skills [skillControlName]="frontendControlName" [skills]="frontendSkills" (callParent)="getAllSkills()"
+            [skillName]="'frontend skills'" [idSkill]="idSkill"></app-sub-skills>
+        <app-sub-skills [skillControlName]="backendControlName" [skills]="backendSkills" (callParent)="getAllSkills()"
+            [skillName]="'backend skills'" [idSkill]="idSkill"></app-sub-skills>
+        <app-sub-skills [skillControlName]="outilControlName" [skills]="outilSkills" (callParent)="getAllSkills()"
+            [skillName]="'outil skills'" [idSkill]="idSkill"></app-sub-skills>
+        <app-sub-skills [skillControlName]="dbControlName" [skills]="dbSkills" (callParent)="getAllSkills()"
+            [skillName]="'db skills'" [idSkill]="idSkill"></app-sub-skills>
     </div>
 </div>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
-</style>

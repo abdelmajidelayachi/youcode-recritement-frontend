@@ -31,6 +31,11 @@ export const Constants = {
       addComment: environment.baseUrl + 'comment/:id',
       getAllComments: environment.baseUrl + 'comments/:id',
     },
+    skills: {
+      getAllSkills: environment.baseUrl + 'skills',
+      addSkills: environment.baseUrl + 'skills',
+      deleteSkill: environment.baseUrl + 'skills/update-skills',
+    },
     // other api endpoints go here
   },
 };
