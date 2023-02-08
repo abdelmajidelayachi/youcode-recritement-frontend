@@ -1,5 +1,6 @@
 import { CandidateService } from './../../../services/candidate.service';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-letter-motivation',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./letter-motivation.component.css'],
 })
 export class LetterMotivationComponent implements OnInit {
-  constructor(private candidateService: CandidateService) {}
+  constructor(private candidateService: CandidateService, private sanitizer: DomSanitizer) {}
 
   motivation_letter: string = '';
   id_document: string = '';
@@ -41,5 +42,9 @@ export class LetterMotivationComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  sanitizeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

@@ -10,6 +10,7 @@ import { SkillsBarComponent } from 'src/app/components/skills/skills-bar/skills-
 import { SubSkillsComponent } from 'src/app/components/skills/sub-skills/sub-skills.component';
 import { MainNavComponent } from 'src/app/components/candidate/main-nav/main-nav.component';
 import { LetterMotivationComponent } from './letter-motivation/letter-motivation.component';
+import { UrlSafePipe } from 'src/app/core/pipes/url-safe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { LetterMotivationComponent } from './letter-motivation/letter-motivation
     LetterMotivationComponent,
     MainNavComponent,
     SkillsBarComponent,
-    SubSkillsComponent,
+    SubSkillsComponent
   ],
   exports: [
     ProfileComponent,
@@ -35,7 +36,6 @@ import { LetterMotivationComponent } from './letter-motivation/letter-motivation
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CoreModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
