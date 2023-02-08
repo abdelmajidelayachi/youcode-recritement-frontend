@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { UiDashboardService } from 'src/app/services/ui-dashboard.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class DashboardNavbarComponent {
 
   constructor(
     private uiDashboard: UiDashboardService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   handleShowDropdown() {
@@ -22,6 +24,10 @@ export class DashboardNavbarComponent {
   }
   handleSidebarToggle() {
     this.uiDashboard.handleSidebarOpen();
+  }
+
+  checkHasRole(role: string): boolean {
+    return this.authService.checkHasRole(role);
   }
 
   handleLogout() {

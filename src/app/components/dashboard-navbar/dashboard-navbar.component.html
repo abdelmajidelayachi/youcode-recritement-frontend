@@ -23,7 +23,8 @@
                     <div>
                         <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" (click)="handleShowDropdown()">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" [src]="currentUser.image" alt="user photo" />
+                            <img *ngIf="!currentUser.image" class="w-8 h-8 rounded-full" src="assets/imgs/profile.png" alt="user photo" />
+                            <img *ngIf="currentUser.image" class="w-8 h-8 rounded-full" [src]="currentUser.image" alt="user photo" />
                         </button>
                     </div>
                     <div *ngIf="showDropdown" class="z-[999] absolute right-1 top-12 my-0 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
@@ -36,9 +37,14 @@
                             </p>
                         </div>
                         <ul class="py-1" role="none">
-                            <li>
+                            <li *ngIf="checkHasRole('ROLE_CANDIDATE')">
                                 <a routerLink="/home/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile</a>
                             </li>
+                            
+                            <li *ngIf="checkHasRole('ROLE_HR') || checkHasRole('ROLE_ADMIN')">
+                                <a routerLink="/dashboard/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile</a>
+                            </li>
+
                             <li>
                                 <button type="button" (click)="handleLogout()" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</button>
                             </li>

@@ -5,8 +5,8 @@
                 <img *ngIf="!imageFile" src="assets/imgs/profile.png" alt="Profile Image" class="w-24 h-24 rounded-full mr-6">
                 <img *ngIf="imageFile" [src]="imageFile" alt="Profile Image" class="w-24 h-24 rounded-full mr-6">
                 <div class="flex-1 text-white">
-                    <h2 class="text-lg font-bold mb-2">Mohammed Amine LAHMAMI</h2>
-                    <p class="text-sm">lahmamimohammedamine@gmail.com</p>
+                    <h2 class="text-lg font-bold mb-2">{{currentUser.firstName}} {{currentUser.lastName}} </h2>
+                    <p class="text-sm">{{currentUser.email}}</p>
                     <div class="relative">
                         <input type="file" (change)="uploadImage($event)" accept="image/*" id="uploadImage" class="hidden" />
                         <label for="uploadImage" class="absolute -bottom-5 -left-11 w-8 h-8"><i

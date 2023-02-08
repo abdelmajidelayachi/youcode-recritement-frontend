@@ -34,7 +34,7 @@
           <span class="ml-3">Dashboard</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="checkHasRole('ROLE_ADMIN')">
         <a
          [routerLink]="['/dashboard/hrs']"
           class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -56,7 +56,7 @@
         </a>
       </li> 
 
-      <li>
+      <li *ngIf="checkHasRole('ROLE_HR')">
         <a
          [routerLink]="['/dashboard/candidates']"
           class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"

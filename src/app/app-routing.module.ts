@@ -1,10 +1,8 @@
-import { ProfileComponent } from './pages/home/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { GuestGuard } from './core/guards/guest.guard';
-import { AdminGuard } from './core/guards/admin.guard';
-import { CandidateGuard } from './core/guards/candidate.guard';
+import { CheckRoleGuard } from './core/guards/check-role.guard';
 
 const routes: Routes = [
   {
@@ -21,7 +19,8 @@ const routes: Routes = [
       import('./pages/home/home-routing.module').then(
         (m) => m.HomeRoutingModule
       ),
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, CheckRoleGuard],
+    data: { expectedRole: ['ROLE_CANDIDATE'] },
   },
   {
     path: 'dashboard',
@@ -29,7 +28,8 @@ const routes: Routes = [
       import('./pages/dashboard/dashboard-routing.module').then(
         (m) => m.DashboardRoutingModule
       ),
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, CheckRoleGuard],
+    data: { expectedRole: ['ROLE_ADMIN', "ROLE_HR"] },
   },
   // other routes go here
   { path: '**', redirectTo: '' },
