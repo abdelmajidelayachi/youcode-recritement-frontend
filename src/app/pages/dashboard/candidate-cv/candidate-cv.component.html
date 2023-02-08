@@ -1,17 +1,24 @@
 <div class="flex flex-col justify-center dark:bg-gray-600 h-full">
-    <app-main-nav></app-main-nav>
-    <div class="flex flex-col">
-        <div class="shadow-xl rounded-md w-1/2 mt-6 self-center" style="height: 100vh;">
-            <iframe [src]="sanitizeUrl(cv)" type="application/pdf" style="width:100%; height:100%;"
-                frameborder="0"></iframe>
-        </div>
-
-        <div class="w-1/5 self-end fixed bottom-6 right-6 ml-10">
-            <app-comment [idDocument]="id_document"></app-comment>
-        </div>
-
-        <div class="w-1/5 self-center fixed top-32 bottom-0 left-6 ml-10">
-            <app-skills-bar></app-skills-bar>
-        </div>
+  <app-main-nav></app-main-nav>
+  <div class="flex flex-col">
+    <div
+      class="shadow-xl rounded-md w-1/2 mt-6 self-center"
+      style="height: 100vh"
+    >
+      <iframe
+        [src]="cv"
+        type="application/pdf"
+        style="width: 100%; height: 100%"
+        frameborder="0"
+      ></iframe>
     </div>
+
+    <div class="w-1/5 self-end fixed bottom-6 right-6 ml-10">
+      <app-comment-hr [idDocument]="id_document"></app-comment-hr>
+    </div>
+
+    <div class="w-1/5 self-center fixed top-32 bottom-0 left-6 ml-10">
+      <app-skills-bar></app-skills-bar>
+    </div>
+  </div>
 </div>
