@@ -18,16 +18,16 @@ import { LetterMotivationComponent } from './letter-motivation/letter-motivation
     MainNavComponent,
     CommentComponent,
     LetterMotivationComponent,
-    SkillsBarComponent,
     SubSkillsComponent,
+    SkillsBarComponent,
   ],
   exports: [
     ProfileComponent,
     CandidateHomeComponent,
     MainNavComponent,
     CommentComponent,
-    SkillsBarComponent,
     SubSkillsComponent,
+    SkillsBarComponent,
   ],
   imports: [
     CommonModule,

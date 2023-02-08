@@ -1,4 +1,3 @@
-import { HomeModule } from './pages/home/home.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, DashboardComponent],
@@ -21,9 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     AuthenticationModule,
     SharedModule,
+    DashboardModule,
     HomeModule,
     ReactiveFormsModule,
-    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

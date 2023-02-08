@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   imageFile: any = null;
+  currentUser: any = this.authService.getCurrentUserFromLocal();
 
   updateForm: FormGroup = new FormGroup({});
   ngOnInit(): void {
