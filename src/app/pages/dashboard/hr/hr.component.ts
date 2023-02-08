@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HrService } from 'src/app/services/hr.service';
-import { User } from 'src/app/shared/interfaces/User';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-hr',

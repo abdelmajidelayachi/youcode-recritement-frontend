@@ -18,7 +18,7 @@ import { SearchComponent } from 'src/app/components/search/search.component';
     AddHrModalComponent,
     DashboardNavbarComponent,
     DashboardSidebarComponent, 
-    PaginationComponent, OverviewAdminComponent, CandidatesComponent,SearchComponent
+    PaginationComponent, OverviewAdminComponent, CandidatesComponent,SearchComponent,
   ],
   imports: [
     CommonModule,

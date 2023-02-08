@@ -7,8 +7,8 @@
                     class="w-24 h-24 rounded-full mr-6">
                 <img *ngIf="imageFile" [src]="imageFile" alt="Profile Image" class="w-24 h-24 rounded-full mr-6">
                 <div class="flex-1 text-white">
-                    <h2 class="text-lg font-bold mb-2">{{ currentUser.firstName + " " + currentUser.lastName }}</h2>
-                    <p class="text-sm">{{ currentUser.email }}</p>
+                    <h2 class="text-lg font-bold mb-2">{{currentUser.firstName}} {{currentUser.lastName}} </h2>
+                    <p class="text-sm">{{currentUser.email}}</p>
                     <div class="relative">
                         <input type="file" (change)="uploadImage($event)" accept="image/*" id="uploadImage"
                             class="hidden" />

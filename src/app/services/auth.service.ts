@@ -50,4 +50,18 @@ export class AuthService {
   getCurrentUserFromLocal(): any {
     return JSON.parse(localStorage.getItem('currentUser')!);
   }
+  getAuthorities(): string[] | undefined {
+    const authorities = this.decodeJWT().authorities.map(
+      (authority: any) => authority.authority
+    );
+    return authorities;
+  }
+
+  checkHasRole(role: string): boolean {
+    const authorities = this.getAuthorities();
+    if (authorities) {
+      return authorities.includes(role);
+    }
+    return false;
+  }
 }

@@ -16,10 +16,9 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
-    SharedModule
     
-    // ReactiveFormsModule,
-    // FormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     RegisterComponent,

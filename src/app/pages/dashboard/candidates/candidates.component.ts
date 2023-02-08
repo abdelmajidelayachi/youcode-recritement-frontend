@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CandidateService } from '../../../services/candidate.service';
-import { User } from 'src/app/shared/interfaces/User';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-candidates',

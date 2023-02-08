@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   imageFile: any = null;
-  currentUser: any = this.authService.getCurrentUserFromLocal();
+  currentUser: any = null;
 
   updateForm: FormGroup = new FormGroup({});
   ngOnInit(): void {
@@ -45,29 +45,30 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile() {
-    this.profileService
-      .getOneCandidate(this.authService.getCurrentUserId())
-      .subscribe(
-        (res: any) => {
-          this.updateForm.patchValue({
-            firstName: res.firstName,
-            lastName: res.lastName,
-            email: res.email,
-          });
-          this.imageFile = res.image;
-          const currentUser = {
-            id: res.id,
-            firstName: res.firstName,
-            lastName: res.lastName,
-            email: res.email,
-            image: res.image,
-          };
-          localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        },
-        (error) => {
-          console.log(error);
+    this.profileService.getProfileData().subscribe(
+      (res: any) => {
+        console.log('res', res);
+        this.updateForm.patchValue({
+          firstName: res.firstName,
+          lastName: res.lastName,
+          email: res.email,
+        });
+        this.imageFile = res.image;
+        this.currentUser = {
+          id: res.id,
+          firstName: res.firstName,
+          lastName: res.lastName,
+          email: res.email,
+          image: res.image,
+        };
+        if (this.currentUser !== null) {
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
         }
-      );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   updateProfile(items: FormGroup) {

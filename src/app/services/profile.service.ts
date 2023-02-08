@@ -10,6 +10,17 @@ import { Injectable } from '@angular/core';
 export class ProfileService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
+  getProfileData(){
+      if(this.authService.checkHasRole('ROLE_CANDIDATE')){
+        return this.http.get(Constants.apiEndPoint.candidate.profile);
+      }else if(this.authService.checkHasRole('ROLE_HR')){
+        return this.http.get(Constants.apiEndPoint.hr.profile);
+      }else if(this.authService.checkHasRole('ROLE_ADMIN')){
+        return this.http.get(Constants.apiEndPoint.admin.profile);
+      }
+      return new Observable();
+  }
+
   getOneCandidate(idCandidate: String) {
     return this.http.get(
       Constants.apiEndPoint.candidate.getCandidate.replace(
