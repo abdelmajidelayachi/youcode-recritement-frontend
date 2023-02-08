@@ -39,7 +39,7 @@
         </form>
 
         <div class="shadow-xl rounded-md w-1/2 mt-6 self-center" style="height: 100vh;">
-            <iframe [src]="motivation_letter | urlSafe" type="application/pdf" style="width:100%; height:100%;" frameborder="0"></iframe>
+            <iframe [src]="sanitizeUrl(motivation_letter)" type="application/pdf" style="width:100%; height:100%;" frameborder="0"></iframe>
         </div>
 
         <div class="w-1/5 self-end fixed bottom-6 right-6 ml-10">

@@ -20,10 +20,10 @@
     </div>
     <div id="messages" class="mt-2 flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch h-[400px]">
         <div *ngFor="let comment of comments; let index = index" class="chat-message">
-            <div *ngIf="comment.hr_id != null" class="flex items-end justify-end">
+            <div *ngIf="comment.hr !== null" class="flex items-end justify-end">
                 <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-start">
                     <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
+                        <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-300 text-gray-600">
                             {{ comment.body }}
                         </span>
                     </div>
@@ -31,10 +31,10 @@
                 <img src="https://res.cloudinary.com/dxtd38f8u/image/upload/v1675621633/girl_hnkoki.png" alt="My profile" class="w-6 h-6 rounded-full order-2">
             </div>
 
-            <div *ngIf="comment.hr_id == null" class="flex items-end">
+            <div *ngIf="comment.hr === null" class="flex items-end">
                 <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-end">
                     <div>
-                        <span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
+                        <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-blue-600 text-white ">
                             {{ comment.body }}
                         </span>
                     </div>

@@ -1,5 +1,7 @@
 import { CandidateService } from './../../../services/candidate.service';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-candidate-home',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./candidate-home.component.css'],
 })
 export class CandidateHomeComponent implements OnInit {
-  cv: string = '';
+  cv : SafeResourceUrl = '';
   id_document: string = '';
-  constructor(private candidateService: CandidateService) {}
+  constructor(private candidateService: CandidateService, private sanitizer: DomSanitizer, private authService : AuthService) {}
 
   ngOnInit(): void {
     this.getCV();
@@ -30,15 +32,20 @@ export class CandidateHomeComponent implements OnInit {
   }
 
   getCV(): void {
-    this.candidateService.getCV().subscribe({
+    const id = this.authService.getCurrentUserId();
+    this.candidateService.getCV(id).subscribe({
       next: (response) => {
         // console.log(response);
-        this.cv = response.path;
+        this.cv = this.sanitizer.bypassSecurityTrustResourceUrl(response.path);
         this.id_document = response.id_document;
       },
       error: (error) => {
         console.log(error);
       },
     });
+  }
+
+  sanitizeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

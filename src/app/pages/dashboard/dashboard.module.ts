@@ -11,14 +11,22 @@ import { PaginationComponent } from 'src/app/components/pagination/pagination.co
 import { OverviewAdminComponent } from './overview-admin/overview-admin.component';
 import { CandidatesComponent } from './candidates/candidates.component';
 import { SearchComponent } from 'src/app/components/search/search.component';
+import { CandidateCvComponent } from './candidate-cv/candidate-cv.component';
+import { CommentHrComponent } from 'src/app/components/hr/comment-hr/comment-hr.component';
 
 @NgModule({
   declarations: [
     HrComponent,
     AddHrModalComponent,
     DashboardNavbarComponent,
-    DashboardSidebarComponent, 
-    PaginationComponent, OverviewAdminComponent, CandidatesComponent,SearchComponent,
+    DashboardSidebarComponent,
+    PaginationComponent,
+    OverviewAdminComponent,
+    CandidatesComponent,
+    SearchComponent,
+    CandidateCvComponent,
+    CommentHrComponent
+    
   ],
   imports: [
     CommonModule,
@@ -30,8 +38,9 @@ import { SearchComponent } from 'src/app/components/search/search.component';
     AddHrModalComponent,
     DashboardNavbarComponent,
     DashboardSidebarComponent,
+    CandidateCvComponent,
+    CommentHrComponent
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DashboardModule { }
+export class DashboardModule {}

@@ -17,11 +17,11 @@ export class CandidateService {
     );
   }
 
-  getCV(): Observable<any> {
+  getCV(userId:any): Observable<any> {
     return this.http.get(
       Constants.apiEndPoint.candidate.getOneDocument.replace(
         ':id',
-        this.authService.getCurrentUserId()
+        userId
       ) + '?type=cv'
     );
   }

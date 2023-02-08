@@ -18,10 +18,10 @@ import { HomeModule } from './pages/home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
     AuthenticationModule,
     SharedModule,
     DashboardModule,
+    CoreModule,
     HomeModule,
     ReactiveFormsModule,
   ],

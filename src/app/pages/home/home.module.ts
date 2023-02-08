@@ -1,4 +1,3 @@
-import { CoreModule } from './../../core/core.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +18,7 @@ import { LetterMotivationComponent } from './letter-motivation/letter-motivation
     LetterMotivationComponent,
     MainNavComponent,
     SkillsBarComponent,
-    SubSkillsComponent,
+    SubSkillsComponent
   ],
   exports: [
     ProfileComponent,
@@ -35,7 +34,6 @@ import { LetterMotivationComponent } from './letter-motivation/letter-motivation
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CoreModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

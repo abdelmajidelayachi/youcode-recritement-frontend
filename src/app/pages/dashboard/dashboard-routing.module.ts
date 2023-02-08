@@ -5,6 +5,8 @@ import { HrComponent } from './hr/hr.component';
 import { CandidatesComponent } from './candidates/candidates.component';
 import { OverviewAdminComponent } from './overview-admin/overview-admin.component';
 import { ProfileComponent } from '../home/profile/profile.component';
+import { CandidateCvComponent } from './candidate-cv/candidate-cv.component';
+import { CheckRoleGuard } from 'src/app/core/guards/check-role.guard';
 
 const routes: Routes = [
   {
@@ -16,14 +18,14 @@ const routes: Routes = [
       { path: 'hrs', component: HrComponent },
       { path: 'candidates', component: CandidatesComponent },
       { path: 'profile', component: ProfileComponent },
+      {
+        path: 'candidate/:id/cv',
+        component: CandidateCvComponent,
+        canActivate: [CheckRoleGuard],
+        data: { expectedRole: ['ROLE_HR'] },
+      },
     ],
-  },
-  // {
-  //   path: 'candidate/:id/cv',
-  //   component: CandidateHomeComponent,
-  //   canActivate: [CheckRoleGuard],
-  //   data: { expectedRole: ['ROLE_HR'] },
-  // },
+  }
   // {
   //   path: 'candidate/:id/letter-motivation',
   //   component: CandidateHomeComponent,
